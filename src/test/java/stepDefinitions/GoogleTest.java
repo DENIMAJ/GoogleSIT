@@ -34,6 +34,7 @@ public class GoogleTest {
     }
     @Then("user able to see details regarding product")
     public void user_able_to_see_details_regarding_product() {
-        System.out.println("Hello");
+        String title = driver.getTitle();
+        System.out.println(title);
     }
 }
