@@ -3,7 +3,12 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.GooglePage;
 import utils.BrowserFactory;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 import static utils.BrowserFactory.driver;
 
 public class GoogleTest {
@@ -15,12 +20,16 @@ public class GoogleTest {
     }
     @When("user enter text in searchbox")
     public void user_enter_text_in_searchbox() {
-        System.out.println("Hello");
+        GooglePage page = new GooglePage(driver);
+        page.enterTextSearch("iphone");
 
     }
     @When("hit enter")
-    public void hit_enter() {
-        System.out.println("Hello");
+    public void hit_enter() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.delay(3000);
 
     }
     @Then("user able to see details regarding product")
