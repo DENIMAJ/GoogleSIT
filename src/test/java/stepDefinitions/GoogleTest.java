@@ -36,5 +36,6 @@ public class GoogleTest {
     public void user_able_to_see_details_regarding_product() {
         String title = driver.getTitle();
         System.out.println(title);
+        System.out.println("Hello");
     }
 }
